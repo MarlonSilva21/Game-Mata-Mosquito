@@ -12,21 +12,26 @@ niveis = window.location.search
 niveis = niveis.replace('?', '')
 if (niveis === 'facil'){
     criaMosquitoTempo = 2000
+    somMosquito()
 
 }else if (niveis === 'normal'){
     criaMosquitoTempo = 1500
+    somMosquito()
 
 }else if(niveis === 'dificil') {
     criaMosquitoTempo = 1000
+    somMosquito()
 }
 else if (niveis === 'valendo10'){
     criaMosquitoTempo = 500
+    somMosquito()
 
 }else if (niveis === 'modolivre'){
     modoLivre()
     tempo = 1000
 }
 
+// Função para a dificuldade do tempo
 function dificuldadeTempo(pontosDeJogo){
 
     if (pontosDeJogo > 5 && pontosDeJogo < 10){
@@ -61,6 +66,7 @@ function ajustaTamanhoPalcoJogo(){
 ajustaTamanhoPalcoJogo()
 
 //cronometro
+document.getElementById('cronometro').innerHTML = tempo
 let cronometro = setInterval(function (){
     tempo -= 1
     if (tempo < 0){
@@ -73,7 +79,7 @@ let cronometro = setInterval(function (){
     }
 },1000)
 
-//Função posição randomica
+//Função da posição randomica dos mosquitos
 function posicaoRandomica(){
 
     //remove o mosquito anterior
@@ -93,14 +99,14 @@ function posicaoRandomica(){
     let posicaoX = Math.floor(Math.random() * largura) -90
     let posicaoY = Math.floor(Math.random() * altura) -90
 
-    //Operador ternario ( if else)
+    //operador ternario ( if else)
     posicaoX = posicaoX < 0 ? 0 : posicaoX;
     posicaoY = posicaoY < 0 ? 0 : posicaoY;
 
 
     console.log(posicaoX, posicaoY)
 
-    //Elemento HTML
+    //criando o elemento HTML mosquito
     var mosquito = document.createElement('img');
     mosquito.src = 'imagens/mosca.png';
     mosquito.className = 'mosquito' + tamanhoRandom() + ' ' + 'ladoAleatorio' +  ladoAleatorio() ;
@@ -116,7 +122,7 @@ function posicaoRandomica(){
 }
 
 
-//funcao tamanhao random
+//funcao tamanho random
 function tamanhoRandom(){
    return Math.floor(Math.random() * 3) + 1
 }
@@ -126,7 +132,7 @@ function ladoAleatorio(){
     return Math.floor(Math.random() * 2) + 1
 }
 
-
+//parametro para a criação dos mosquitos
 let criaMosquito = setInterval(function (){
     posicaoRandomica()
 }, criaMosquitoTempo)
@@ -135,6 +141,7 @@ let criaMosquito = setInterval(function (){
 function modoLivre(){
 
     posicaoRandomica()
+    somMosquito()
 
     let pontos = document.createElement("div")
     pontos.className = 'pontuacao'
@@ -145,23 +152,32 @@ function modoLivre(){
             pontosDeJogo = pontosDeJogo + 1
             pontos.innerHTML = pontosDeJogo
             dificuldadeTempo(pontosDeJogo)
+
         }
     });
 
     document.body.appendChild(pontos)
-
-
 }
-function createOver(){
-if (window.location.href === 'game_over.html') {
-    let over = document.createElement('div')
-    over.className = 'gameOverLivre'
 
-    document.appendChild(over)
-
-    }
+function somMosquito(){
+    document.addEventListener('click', function (e){
+        if (e.target && e.target.id === 'mosquito'){
+            const som = document.getElementById('punch')
+            som.play()
+        }
+    })
 }
-createOver()
+
+// function createOver(){
+// if (window.location.href === 'game_over.html') {
+//     let over = document.createElement('div')
+//     over.className = 'gameOverLivre'
+//
+//     document.appendChild(over)
+//
+//     }
+// }
+// createOver()
 
 
 // var aram = document.getElementById('mosquito')
@@ -204,7 +220,29 @@ createOver()
 
 
 
-
+// function dificuldadeTempo(pontosDeJogo){
+//
+//     if (pontosDeJogo > 5 && pontosDeJogo < 10){
+//         criaMosquitoTempo = 100
+//         console.log("PASSOU DE NIVEL")
+//     }
+//
+//     else if (pontosDeJogo >= 10 && pontosDeJogo <= 19){
+//         criaMosquitoTempo = 750
+//         console.log('nvel2')
+//
+//     }
+//     else if (pontosDeJogo > 15){
+//         criaMosquitoTempo = 500
+//     }
+//     else if (pontosDeJogo > 60){
+//         criaMosquitoTempo = 250
+//     }
+//     else if (pontosDeJogo > 80){
+//         criaMosquitoTempo = 200
+//     }
+//
+// }
 
 
 

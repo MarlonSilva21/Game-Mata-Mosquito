@@ -10,6 +10,9 @@
 </head>
 <body onresize="ajustaTamanhoPalcoJogo()">
 
+<audio autoplay loop src="songs/blue_dream.mp3"></audio>
+<audio  id="punch" src="songs/punch.mp3"> </audio>
+
 <div class="painel">
     <div class="vidas">
         <img id="v1" src="imagens/coracao_cheio.png" alt="coração">
@@ -24,6 +27,14 @@
 <!--   /* <div class="pontuacao" ><span id="pontuacao"></span></div>  */-->
 
 <!--/* Script */-->
+
+<script>
+    const punch = document.getElementById('punch')
+    punch.addEventListener('click', function (){
+        const  audio = document.getElementById('punch')
+        punch.play()
+    })
+</script>
 
 <script src="main.js"></script>
 

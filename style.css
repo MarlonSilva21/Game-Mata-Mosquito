@@ -9,20 +9,19 @@ body{
     height: 100vh;
 
 }
-
 .mosquito1 {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 
 .mosquito2 {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
 }
 
 .mosquito3 {
-    width: 90px;
-    height: 90px;
+    width: 130px;
+    height: 130px;
 }
 
 .ladoAleatorio2{
@@ -72,5 +71,64 @@ body{
     width: 100px;
     text-align: center;
     background: black;
+}
+
+.container{
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+
+    justify-content: center;
+    flex-direction: column;
 
 }
+
+
+@media (max-width: 320px) {
+    img.img_victory{
+        height: 320px;
+    }
+
+    .mosquito1{
+        display: none;
+    }
+}
+
+@media (min-width: 321px ) and (max-width: 480px){
+    button span.game_over{
+        font-size: small;
+        display: flex;
+    }
+
+    img.img_victory{
+        height: 400px;
+    }
+}
+
+@media(min-width: 481px ) and (max-width: 767px) {
+    span{
+        font-size: 1.5em;
+    }
+    button span.game_over{
+        font-size: small;
+        display: flex;
+    }
+}
+@media (min-width: 768px ) and  (max-width: 991px) {
+    span{
+        font-size: 1.5em;
+    }
+}
+
+/*/ Extra large devices (large desktops, 1200px and up)*!*!*/
+@media (min-width: 992px) {
+    span{
+        font-size: 1em;
+    }
+}
+
