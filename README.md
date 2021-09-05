@@ -37,7 +37,7 @@ developed during the course of the web development udemy
 <img align="center" alt="gif" width="100%" height="100%" src="imagens/gif-mosca.gif">
 
 <p align="center">
-  <a href="https://marlonpage.netlify.app/" target="_blank">
+  <a href="https://gamematamosquito.netlify.app/" target="_blank">
     <img alt="Demo on Netlify" src="https://res.cloudinary.com/lukemorales/image/upload/v1599785319/readme_logos/demo_on_netlify_umjmch.png">
   </a>
 </p>
